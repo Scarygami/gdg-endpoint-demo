@@ -23,7 +23,7 @@ handlers:
   
 - url: /
   static_files: static/demo.html
-  upload: static/demo\.ico
+  upload: static/demo\.html
 
 - url: /_ah/spi/.*
   script: api.application
