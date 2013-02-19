@@ -27,7 +27,3 @@ handlers:
 
 - url: /_ah/spi/.*
   script: api.application
-  
-libraries:
-- name: pycrypto
-  version: "2.6"

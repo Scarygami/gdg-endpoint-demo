@@ -1,15 +1,16 @@
-import logging
 from google.appengine.ext import endpoints
 from google.appengine.ext import ndb
 from protorpc import remote
 from protorpc import messages
 
+# --------------------------------------
 # DB Model
+# --------------------------------------
 
 class DBEntry(ndb.Model):
-    """Model to store Entries into the Demo "Guestbook".
+    """Model to store Entries into the Demo Guestbook.
 
-    Since the date property is auto_now_add=True, Entries will document
+    Since the date property is auto_now_add=True, entries will document
     when they were inserted immediately after being stored.
     """
     author = ndb.TextProperty(required=True)
@@ -64,7 +65,9 @@ class DBEntry(ndb.Model):
         return cls.query()
         
 
+# --------------------------------------
 # Message Classes
+# --------------------------------------
 
 class EntryListRequest(messages.Message):
     class Order(messages.Enum):
@@ -88,16 +91,16 @@ class EntryList(messages.Message):
     """List of Guestbook entries"""
     items = messages.MessageField(Entry, 1, repeated=True)
 
-    
+# --------------------------------------
 # API Definition
+# --------------------------------------
 
 CLIENT_ID = "817861005374.apps.googleusercontent.com"
 
 
 @endpoints.api(name="gdgdemo", version="v1",
                description="GDG Endpoint Demo",
-               allowed_client_ids=[CLIENT_ID, endpoints.API_EXPLORER_CLIENT_ID],
-               scopes=["https://www.googleapis.com/auth/userinfo.email"])
+               allowed_client_ids=[CLIENT_ID, endpoints.API_EXPLORER_CLIENT_ID])
 class GDGDemoApi(remote.Service):
 
     @endpoints.method(EntryListRequest, EntryList,
@@ -118,8 +121,7 @@ class GDGDemoApi(remote.Service):
         
     @endpoints.method(Entry, Entry,
                       path='entries/new', http_method='POST',
-                      name='entries.insert',
-                      scopes=["https://www.googleapis.com/auth/userinfo.email"])
+                      name='entries.insert')
     def insert_entry(self, request):
         """Insert a new entry to the database"""
     
@@ -127,8 +129,9 @@ class GDGDemoApi(remote.Service):
        
         return entity.to_message()
 
-
+# --------------------------------------
 # Initialize the API Service
+# --------------------------------------
 application = endpoints.api_server([GDGDemoApi], restricted=False)
 
 
