@@ -6,21 +6,25 @@ threadsafe: true
 
 handlers:
 
-- url: /images
-  static_dir: images
+- url: /packages
+  static_dir: static/packages
 
-- url: /style\.css
-  static_files: static/style.css
-  upload: static/style\.css
+- url: /demo\.css
+  static_files: static/demo.css
+  upload: static/demo\.css
 
 - url: /favicon\.ico
   static_files: static/favicon.ico
   upload: static/favicon\.ico
 
-- url: /demo.js
-  static_files: static/demo.js
-  upload: static/demo\.js
-  
+- url: /demo.dart
+  static_files: static/demo.dart
+  upload: static/demo\.dart
+
+- url: /demo.dart.js
+  static_files: static/demo.dart.js
+  upload: static/demo\.dart\.js
+
 - url: /
   static_files: static/demo.html
   upload: static/demo\.html

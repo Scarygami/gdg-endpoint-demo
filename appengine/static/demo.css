@@ -1,0 +1,20 @@
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+  padding: 15px;
+}
+
+#entries {
+  width: 100%;
+  color: #333;
+  position: relative;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  min-height: 20px;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+}

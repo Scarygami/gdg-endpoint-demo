@@ -1,11 +1,9 @@
 name: dart_gdgdemo_v1_api
 version: 0.1.0
+author: Gerwin Sturm <scarygami@gmail.com>
 description: Auto-generated client library for accessing the gdgdemo v1 API
 homepage: https://github.com/dart-gde/discovery_api_dart_client_generator
-authors:
-- Gerwin Sturm <scarygami@gmail.com>
-- Adam Singer <financeCoding@gmail.com>
-
 dependencies:
+  google_plus_v1_api: any
   js: '>=0.0.14'
   google_oauth2_client: '>=0.2.1'
